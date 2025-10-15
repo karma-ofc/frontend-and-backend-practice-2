@@ -205,31 +205,28 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Функция для скачивания резюме
 function downloadResume() {
     const resumeUrl = 'assets/resume.pdf';
     
-    // Создаем временную ссылку для скачивания
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'Резюме_Сергей_Барков.pdf';
-    
-    // Добавляем на страницу и кликаем
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    showNotification('Резюме начинает скачиваться...', 'info');
-    
-    // На случай если файл не найден
-    setTimeout(() => {
-        // Проверяем, произошло ли скачивание
-        const checkDownload = setTimeout(() => {
-            showNotification('Если скачивание не началось, проверьте файл резюме', 'warning');
-        }, 2000);
-    }, 100);
+    // Проверяем существование файла
+    fetch(resumeUrl)
+        .then(response => {
+            if (response.ok) {
+                const link = document.createElement('a');
+                link.href = resumeUrl;
+                link.download = 'Резюме_Сергей_Барков.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                showNotification('Резюме скачивается...', 'success');
+            } else {
+                showNotification('Файл резюме не найден', 'danger');
+            }
+        })
+        .catch(error => {
+            showNotification('Ошибка при скачивании', 'danger');
+        });
 }
-
 // Функции для работы с проектами
 function initProjectModals() {
     const projectsData = {
