@@ -205,12 +205,29 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Функция для имитации скачивания резюме
+// Функция для скачивания резюме
 function downloadResume() {
+    const resumeUrl = 'assets/resume.pdf';
+    
+    // Создаем временную ссылку для скачивания
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'Резюме_Сергей_Барков.pdf';
+    
+    // Добавляем на страницу и кликаем
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
     showNotification('Резюме начинает скачиваться...', 'info');
+    
+    // На случай если файл не найден
     setTimeout(() => {
-        showNotification('Резюме успешно скачано!', 'success');
-    }, 1500);
+        // Проверяем, произошло ли скачивание
+        const checkDownload = setTimeout(() => {
+            showNotification('Если скачивание не началось, проверьте файл резюме', 'warning');
+        }, 2000);
+    }, 100);
 }
 
 // Функции для работы с проектами
