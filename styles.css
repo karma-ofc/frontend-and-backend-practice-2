@@ -76,7 +76,7 @@ body {
     position: absolute;
     top: -40px;
     left: 6px;
-    background: #dc3545;
+    background: #356ddc;
     color: white;
     padding: 8px;
     text-decoration: none;
@@ -217,7 +217,7 @@ body {
 
 .delete-entry:hover {
     transform: scale(1.05);
-    background-color: #dc3545;
+    background-color: #356ddc;
     color: white;
 }
 
@@ -250,87 +250,87 @@ body {
 
 /* Основные кнопки */
 .btn-primary {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #356ddc;
+    border-color: #356ddc;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #c82333;
-    border-color: #bd2130;
+    background-color: #356ddc;
+    border-color: #356ddc;
 }
 
 .btn-outline-primary {
-    color: #dc3545;
-    border-color: #dc3545;
+    color: #356ddc;
+    border-color: #356ddc;
 }
 
 .btn-outline-primary:hover {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #356ddc;
+    border-color: #356ddc;
     color: white;
 }
 
 /* Активные кнопки фильтров */
 .btn-outline-primary.active {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #356ddc;
+    border-color: #356ddc;
     color: white;
 }
 
 /* Прогресс-бары (слайдеры) */
 .progress-bar {
-    background-color: #dc3545;
+    background-color: #356ddc;
 }
 
 /* Кнопка скачивания резюме */
 .btn-primary.btn-lg {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #358bdc;
+    border-color: #357bdc;
 }
 
 .btn-primary.btn-lg:hover {
-    background-color: #c82333;
-    border-color: #c82333;
+    background-color: #356ddc;
+    border-color: #356ddc;
 }
 
 /* Кнопки в модальных окнах */
 .modal .btn-primary {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #356ddc;
+    border-color: #356ddc;
 }
 
 .modal .btn-outline-secondary {
-    color: #dc3545;
-    border-color: #dc3545;
+    color: #356ddc;
+    border-color: #356ddc;
 }
 
 .modal .btn-outline-secondary:hover {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #356ddc;
+    border-color: #356ddc;
     color: white;
 }
 
 /* Активное состояние и фокус для кнопок */
 .btn-primary:active,
 .btn-primary:focus {
-    background-color: #c82333 !important;
-    border-color: #bd2130 !important;
+    background-color: #356ddc !important;
+    border-color: #356ddc !important;
     box-shadow: none !important;
 }
 
 .btn-outline-primary:active,
 .btn-outline-primary:focus {
-    background-color: #dc3545 !important;
-    border-color: #dc3545 !important;
+    background-color: #356ddc !important;
+    border-color: #356ddc !important;
     color: white !important;
     box-shadow: none !important;
 }
 
 /* Активное состояние для кнопок фильтров */
 .btn-outline-primary.active:focus {
-    background-color: #dc3545 !important;
-    border-color: #dc3545 !important;
+    background-color: #356ddc!important;
+    border-color: #356ddc !important;
     box-shadow: none !important;
 }
 
@@ -340,7 +340,7 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-    outline: 2px solid #dc3545;
+    outline: 2px solid #356ddc;
     outline-offset: 2px;
 }
 

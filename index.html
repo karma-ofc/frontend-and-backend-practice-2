@@ -2,19 +2,21 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Портфолио студента</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Портфолио студента-разработчика</title>
+    <meta name="description" content="Портфолио студента Баркова Сергея - фулл-стек разработчика. Проекты, навыки и учебный дневник.">
+    <meta name="keywords" content="портфолио, студент, веб-разработка, HTML, CSS, JavaScript">
+    <meta name="author" content="Сергей Барков">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Навигация -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 30px; height: 30px;">
-                    <span class="text-white fw-bold">SB</span>
-                </div>
+                <img src="images/icon/icon.ico" alt="Логотип" width="30" height="30" class="me-2">
                 Сергей Барков
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -23,42 +25,57 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Главная</a>
+                        <a class="nav-link" href="index.html">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/projects.html">Проекты</a>
+                        <a class="nav-link" href="projects.html">Проекты</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/diary.html">Дневник</a>
+                        <a class="nav-link" href="diary.html">Дневник</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/contacts.html">Контакты</a>
+                        <a class="nav-link" href="contacts.html">Контакты</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Главная страница -->
-    <main class="container mt-5 pt-4">
-        <!-- Герой секция -->
-        <section class="row align-items-center py-5">
+    <main id="main" class="container mt-5 pt-4">
+        <!-- контейнер для главной секции -->
+        <section class="row align-items-center py-5 hero-section">
             <div class="col-md-6">
-                <h1 class="display-4 fw-bold">Привет! Я студент</h1>
-                <p class="lead">группы ЭФБО-13-24</p>
-                <p class="mb-4">обучаюсь фулл-стек разработке</p>
-                <button class="btn btn-primary btn-lg" onclick="downloadResume()">Скачать резюме</button>
+                <h1 class="display-4 fw-bold section-title">Привет! Я студент</h1>
+                <p class="lead hero_greeting">группы ЭФБО-13-24</p>
+                <p class="mb-4">Увлекаюсь фулл-стек разработкой</p>
+                <button class="btn btn-primary btn-lg button" onclick="downloadResume()">Скачать резюме</button>
             </div>
             <div class="col-md-6 text-center">
-                <img src="images/student-photo.jpg" 
-                alt="Фото студента" 
-                class="student-photo rounded-circle">
+                <figure class="hero_image">
+                    <picture>
+                        <source type="image/webp" srcset="
+                            images/student-photo-150.webp 150w,
+                            images/student-photo-300.webp 300w,
+                            images/student-photo-450.webp 450w
+                        " sizes="(max-width: 768px) 300px, 400px">
+                        <img class="student-photo rounded-circle hero_photo"
+                            src="images/student-photo-300.webp"
+                            srcset="
+                                images/student-photo-150.webp 150w,
+                                images/student-photo-300.webp 300w,
+                                images/student-photo-450.webp 450w
+                            "
+                            sizes="(max-width: 768px) 300px, 400px"
+                            width="300" height="300"
+                            alt="Фото студента Сергея Баркова"
+                            fetchpriority="high">
+                    </picture>
+                </figure>
             </div>
         </section>
 
-        <!-- Навыки -->
         <section class="my-5 py-4 bg-light rounded">
-            <h2 class="text-center mb-4">Мои навыки</h2>
+            <h2 class="text-center mb-4 section-title">Мои навыки</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="skill-item mb-3">
@@ -67,7 +84,7 @@
                             <span>90%</span>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill-item mb-3">
@@ -76,7 +93,7 @@
                             <span>80%</span>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 80%"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill-item mb-3">
@@ -85,7 +102,7 @@
                             <span>85%</span>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill-item mb-3">
@@ -94,75 +111,122 @@
                             <span>60%</span>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 60%"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Лучшие проекты -->
-        <section class="my-5">
-            <h2 class="text-center mb-4">Лучшие проекты</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 text-center project-card" data-project="project1">
-                        <div class="card-body d-flex flex-column">
-                            <div class="project-icon mb-3">
-                                <span class="display-1">П1</span>
-                            </div>
-                            <h5 class="card-title">Личный сайт</h5>
-                            <p class="card-text flex-grow-1">Адаптивный веб-сайт с использованием HTML и CSS</p>
-                            <a href="pages/projects.html" class="btn btn-outline-primary mt-auto">Подробнее</a>
+        <!-- контейнер для проектов -->
+        <section id="projects" class="my-5 projects-area">
+            <h2 class="text-center mb-4 section-title">Лучшие проекты</h2>
+            <div class="projects-preview_grid">
+                <div class="project-card" data-project="project1">
+                    <div class="card-body d-flex flex-column">
+                        <div class="project-icon mb-3">
+                            <picture>
+                                <source type="image/webp" srcset="
+                                    images/project1-150.webp 150w,
+                                    images/project1-300.webp 300w
+                                " sizes="(max-width: 768px) 150px, 200px">
+                                <img class="project-image" 
+                                    src="images/project1-300.webp"
+                                    srcset="
+                                        images/project1-150.webp 150w,
+                                        images/project1-300.webp 300w
+                                    "
+                                    sizes="(max-width: 768px) 150px, 200px"
+                                    width="200" height="150"
+                                    alt="Личный сайт - проект студента"
+                                    loading="lazy">
+                            </picture>
+                        </div>
+                        <h5 class="card-title project-card_title">Личный сайт</h5>
+                        <p class="card-text flex-grow-1 project-card_description">Адаптивный веб-сайт с использованием HTML и CSS</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-primary">HTML</span>
+                            <span class="badge bg-info">CSS</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 text-center project-card" data-project="project2">
-                        <div class="card-body d-flex flex-column">
-                            <div class="project-icon mb-3">
-                                <span class="display-1">П2</span>
-                            </div>
-                            <h5 class="card-title">Todo-приложение</h5>
-                            <p class="card-text flex-grow-1">Интерактивное приложение на JavaScript</p>
-                            <a href="pages/projects.html" class="btn btn-outline-primary mt-auto">Подробнее</a>
+                
+                <div class="project-card" data-project="project2">
+                    <div class="card-body d-flex flex-column">
+                        <div class="project-icon mb-3">
+                            <picture>
+                                <source type="image/webp" srcset="
+                                    images/project2-150.webp 150w,
+                                    images/project2-300.webp 300w
+                                " sizes="(max-width: 768px) 150px, 200px">
+                                <img class="project-image" 
+                                    src="images/project2-300.webp"
+                                    srcset="
+                                        images/project2-150.webp 150w,
+                                        images/project2-300.webp 300w
+                                    "
+                                    sizes="(max-width: 768px) 150px, 200px"
+                                    width="200" height="150"
+                                    alt="Todo-приложение - проект студента"
+                                    loading="lazy">
+                            </picture>
+                        </div>
+                        <h5 class="card-title project-card_title">Todo-приложение</h5>
+                        <p class="card-text flex-grow-1 project-card_description">Интерактивное приложение на JavaScript</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-warning">JavaScript</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 text-center project-card" data-project="project3">
-                        <div class="card-body d-flex flex-column">
-                            <div class="project-icon mb-3">
-                                <span class="display-1">П3</span>
-                            </div>
-                            <h5 class="card-title">Портфолио</h5>
-                            <p class="card-text flex-grow-1">Современное портфолио с использованием Bootstrap</p>
-                            <a href="pages/projects.html" class="btn btn-outline-primary mt-auto">Подробнее</a>
+                
+                <div class="project-card" data-project="project3">
+                    <div class="card-body d-flex flex-column">
+                        <div class="project-icon mb-3">
+                            <picture>
+                                <source type="image/webp" srcset="
+                                    images/project3-150.webp 150w,
+                                    images/project3-300.webp 300w
+                                " sizes="(max-width: 768px) 150px, 200px">
+                                <img class="project-image" 
+                                    src="images/project3-300.webp"
+                                    srcset="
+                                        images/project3-150.webp 150w,
+                                        images/project3-300.webp 300w
+                                    "
+                                    sizes="(max-width: 768px) 150px, 200px"
+                                    width="200" height="150"
+                                    alt="Портфолио на Bootstrap - проект студента"
+                                    loading="lazy">
+                            </picture>
+                        </div>
+                        <h5 class="card-title project-card_title">Портфолио</h5>
+                        <p class="card-text flex-grow-1 project-card_description">Современное портфолио с использованием Bootstrap</p>
+                        <div class="mt-auto">
+                            <span class="badge bg-info">Bootstrap</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center">
-                <a href="pages/projects.html" class="btn btn-primary">Все проекты</a>
+            <div class="text-center mt-4">
+                <a href="projects.html" class="btn btn-outline-primary btn-lg button">Смотреть все проекты</a>
             </div>
         </section>
     </main>
 
-    <!-- Футер -->
-    <footer class="bg-dark text-light py-4 mt-5">
+    <footer class="bg-dark text-light py-4 mt-5 footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; 2025 Контакты</p>
+                    <p>&copy; 2025 Сергей Барков. Все права защищены.</p>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="pages/contacts.html" class="text-light">Связаться со мной</a>
+                    <a href="contacts.html" class="text-light">Связаться со мной</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts/scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

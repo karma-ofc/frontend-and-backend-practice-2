@@ -2,18 +2,21 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Контакты - Портфолио студента</title>
+    <meta name="description" content="Свяжитесь со студентом Сергеем Барковым для сотрудничества, вопросов или предложений по веб-разработке.">
+    <meta name="keywords" content="контакты, связь, сотрудничество, веб-разработка, портфолио">
+    <meta name="author" content="Сергей Барков">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="../index.html">
-                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 30px; height: 30px;">
-                    <span class="text-white fw-bold">SB</span>
-                </div>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/icon/icon.ico" alt="Логотип" width="30" height="30" class="me-2">
                 Сергей Барков
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -22,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Главная</a>
+                        <a class="nav-link" href="index.html">Главная</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="projects.html">Проекты</a>
@@ -38,73 +41,65 @@
         </div>
     </nav>
 
-    <main class="container mt-5 pt-4">
-        <h1 class="text-center mb-4">Свяжитесь со мной</h1>
+    <!-- контейнер для контактов -->
+    <main id="main" class="container mt-5 pt-4 contacts-container">
+        <h1 class="text-center mb-4 section-title">Контакты</h1>
         
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <form id="contactForm">
+                        <h2 class="card-title h5">Свяжитесь со мной</h2>
+                        <form id="contactForm" novalidate>
                             <div class="mb-3">
-                                <label for="name" class="form-label">Имя</label>
-                                <input type="text" class="form-control" id="name" required>
-                                <div class="invalid-feedback" id="nameError"></div>
+                                <label for="name" class="form-label">Имя <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name" required
+                                       aria-describedby="name-hint name-error"
+                                       placeholder="Введите ваше имя">
+                                <div id="name-hint" class="form-text visually-hidden">Введите ваше полное имя</div>
+                                <div id="name-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
-                                <div class="invalid-feedback" id="emailError"></div>
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" required
+                                       aria-describedby="email-hint email-error"
+                                       placeholder="example@mail.ru">
+                                <div id="email-hint" class="form-text visually-hidden">Введите ваш email для обратной связи</div>
+                                <div id="email-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
                             </div>
                             <div class="mb-3">
-                                <label for="message" class="form-label">Сообщение</label>
-                                <textarea class="form-control" id="message" rows="5" required></textarea>
-                                <div class="invalid-feedback" id="messageError"></div>
+                                <label for="message" class="form-label">Сообщение <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required
+                                          aria-describedby="message-hint message-error"
+                                          placeholder="Введите ваше сообщение..."></textarea>
+                                <div id="message-hint" class="form-text visually-hidden">Опишите цель вашего обращения</div>
+                                <div id="message-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                            <button type="submit" class="btn btn-primary button">Отправить сообщение</button>
                         </form>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-4">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Контакты</h5>
-                        <div class="mb-3">
-                            <p class="mb-1">📧 Email</p>
-                            <p class="text-muted">brkv@edu.ru</p>
-                        </div>
-                        <div class="mb-3">
-                            <p class="mb-1">💻 GitHub</p>
-                            <p class="text-muted">github.com/karma-ofc</p>
-                        </div>
-                        <div class="mb-3">
-                            <p class="mb-1">📍 Местоположение</p>
-                            <p class="text-muted">Москва, Россия</p>
-                        </div>
-                        <div class="mb-3">
-                            <p class="mb-1">📞 Телефон</p>
-                            <p class="text-muted">+7 (999) 123-45-67</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Время ответа</h5>
-                        <p class="text-muted">Обычно отвечаю в течение 24 часов. Не стесняйтесь обращаться по любым вопросам!</p>
+                        <h2 class="card-title h5">Мои контакты</h2>
+                        <address class="mb-0">
+                            <p class="mb-2">📩 brkv@mail.ru</p>
+                            <p class="mb-2">🧑‍💻 GitHub: karma-ofc</p>
+                            <p class="mb-0">📌 Москва, Россия</p>
+                        </address>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-dark text-light py-4 mt-5">
+    <footer class="bg-dark text-light py-4 mt-5 footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; 2025 Контакты</p>
+                    <p>&copy; 2025 Сергей Барков. Все права защищены.</p>
                 </div>
                 <div class="col-md-6 text-end">
                     <a href="contacts.html" class="text-light">Связаться со мной</a>
@@ -114,6 +109,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../scripts/scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
