@@ -340,8 +340,9 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-    outline: 2px solid #dc3545;
+    outline: 3px solid #dc3545;
     outline-offset: 2px;
+    border-radius: 4px;
 }
 
 /* Стили для prefers-reduced-motion */

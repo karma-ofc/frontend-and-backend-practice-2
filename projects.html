@@ -19,7 +19,7 @@
                 <img src="images/icon/icon.ico" alt="Логотип" width="30" height="30" class="me-2">
                 Сергей Барков
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Открыть меню навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -42,14 +42,14 @@
     </nav>
 
     <main id="main" class="container mt-5 pt-4">
-        <h1 class="text-center mb-4 section-title">Мои проекты</h1>
+        <h2 class="text-center mb-4 section-title">Мои проекты</h2>
         
         <div class="text-center mb-4">
             <div class="btn-group" role="group" aria-label="Фильтры проектов">
-                <button type="button" class="btn btn-outline-primary project-filter active" data-filter="all">Все</button>
-                <button type="button" class="btn btn-outline-primary project-filter" data-filter="html">HTML</button>
-                <button type="button" class="btn btn-outline-primary project-filter" data-filter="js">JavaScript</button>
-                <button type="button" class="btn btn-outline-primary project-filter" data-filter="bootstrap">Bootstrap</button>
+                <button type="button" class="btn btn-outline-primary project-filter active" data-filter="all" aria-pressed="true">Все</button>
+                <button type="button" class="btn btn-outline-primary project-filter" data-filter="html" aria-pressed="false">HTML</button>
+                <button type="button" class="btn btn-outline-primary project-filter" data-filter="js" aria-pressed="false">JavaScript</button>
+                <button type="button" class="btn btn-outline-primary project-filter" data-filter="bootstrap" aria-pressed="false">Bootstrap</button>
             </div>
         </div>
 
@@ -75,11 +75,11 @@
                                     loading="lazy">
                             </picture>
                         </div>
-                        <h5 class="card-title project-card_title">Личный сайт</h5>
+                        <h3 class="card-title project-card_title">Личный сайт</h3>
                         <p class="card-text flex-grow-1 project-card_description">Адаптивный веб-сайт с использованием HTML и CSS</p>
                         <div class="mt-auto">
                             <span class="badge bg-primary">HTML</span>
-                            <span class="badge bg-info">CSS</span>
+                            <span class="badge bg-primary">CSS</span>
                         </div>
                     </div>
                 </div>
@@ -104,10 +104,10 @@
                                     loading="lazy">
                             </picture>
                         </div>
-                        <h5 class="card-title project-card_title">Todo-приложение</h5>
+                        <h3 class="card-title project-card_title">Todo-приложение</h3>
                         <p class="card-text flex-grow-1 project-card_description">Интерактивное приложение на JavaScript</p>
                         <div class="mt-auto">
-                            <span class="badge bg-warning">JavaScript</span>
+                            <span class="badge bg-danger">JavaScript</span>
                         </div>
                     </div>
                 </div>
@@ -132,10 +132,10 @@
                                     loading="lazy">
                             </picture>
                         </div>
-                        <h5 class="card-title project-card_title">Портфолио</h5>
+                        <h3 class="card-title project-card_title">Портфолио</h3>
                         <p class="card-text flex-grow-1 project-card_description">Современное портфолио с использованием Bootstrap</p>
                         <div class="mt-auto">
-                            <span class="badge bg-info">Bootstrap</span>
+                            <span class="badge bg-primary">Bootstrap</span>
                         </div>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                                     loading="lazy">
                             </picture>
                         </div>
-                        <h5 class="card-title project-card_title">Интернет-магазин</h5>
+                        <h3 class="card-title project-card_title">Интернет-магазин</h3>
                         <p class="card-text flex-grow-1 project-card_description">Прототип интернет-магазина с корзиной покупок</p>
                         <div class="mt-auto">
                             <span class="badge bg-success">React</span>

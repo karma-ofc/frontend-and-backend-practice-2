@@ -19,7 +19,7 @@
                 <img src="images/icon/icon.ico" alt="Логотип" width="30" height="30" class="me-2">
                 Сергей Барков
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Открыть меню навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -51,31 +51,38 @@
                     <div class="card-body">
                         <h2 class="card-title h5">Свяжитесь со мной</h2>
                         <form id="contactForm" novalidate>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Имя <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="name" name="name" required
-                                       aria-describedby="name-hint name-error"
-                                       placeholder="Введите ваше имя">
-                                <div id="name-hint" class="form-text visually-hidden">Введите ваше полное имя</div>
-                                <div id="name-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="email" name="email" required
-                                       aria-describedby="email-hint email-error"
-                                       placeholder="example@mail.ru">
-                                <div id="email-hint" class="form-text visually-hidden">Введите ваш email для обратной связи</div>
-                                <div id="email-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Сообщение <span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="message" name="message" rows="5" required
-                                          aria-describedby="message-hint message-error"
-                                          placeholder="Введите ваше сообщение..."></textarea>
-                                <div id="message-hint" class="form-text visually-hidden">Опишите цель вашего обращения</div>
-                                <div id="message-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
-                            </div>
-                            <button type="submit" class="btn btn-primary button">Отправить сообщение</button>
+                            <fieldset>
+                                <legend class="visually-hidden">Контактная информация</legend>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Имя <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="name" name="name" required
+                                            aria-required="true"
+                                            aria-describedby="name-hint name-error"
+                                            placeholder="Введите ваше имя">
+                                    <div id="name-hint" class="form-text visually-hidden">Введите ваше полное имя</div>
+                                    <div id="name-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" name="email" required
+                                            aria-required="true"
+                                            aria-describedby="email-hint email-error"
+                                            placeholder="example@mail.ru">
+                                    <div id="email-hint" class="form-text visually-hidden">Введите ваш email для обратной связи</div>
+                                    <div id="email-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Сообщение <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required
+                                              aria-required="true"
+                                              aria-describedby="message-hint message-error"
+                                              placeholder="Введите ваше сообщение..."></textarea>
+                                    <div id="message-hint" class="form-text visually-hidden">Опишите цель вашего обращения</div>
+                                    <div id="message-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
+                                </div>
+                            </fieldset>
+                            <button type="submit" class="btn btn-primary button" aria-describedby="submit-help">Отправить сообщение</button>
+                            <div id="submit-help" class="visually-hidden">Нажмите для отправки контактной формы</div>
                         </form>
                     </div>
                 </div>

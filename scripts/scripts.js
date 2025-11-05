@@ -461,20 +461,28 @@ function initProjectFilters() {
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Обновление активной кнопки
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
             this.classList.add('active');
-            
+            this.setAttribute('aria-pressed', 'true');
+
             const filter = this.getAttribute('data-filter');
             filterProjects(filter);
         });
-        
+
         // Обработчики клавиатуры
         button.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                filterButtons.forEach(btn => btn.classList.remove('active'));
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
                 this.classList.add('active');
-                
+                this.setAttribute('aria-pressed', 'true');
+
                 const filter = this.getAttribute('data-filter');
                 filterProjects(filter);
             }

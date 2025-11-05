@@ -19,7 +19,7 @@
                 <img src="images/icon/icon.ico" alt="Логотип" width="30" height="30" class="me-2">
                 Сергей Барков
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Открыть меню навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,14 +43,14 @@
 
     <!-- контейнер для дневника -->
     <main id="main" class="container mt-5 pt-4 diary-container">
-        <h1 class="text-center mb-4 section-title">Учебный дневник</h1>
+        <h2 class="text-center mb-4 section-title">Учебный дневник</h2>
         
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title h4">Мой учебный прогресс</h2>
-                        <div id="diaryEntries" aria-live="polite">
+                        <h3 class="card-title h4">Мой учебный прогресс</h3>
+                        <div id="diaryEntries" aria-live="polite" role="region" aria-label="Список записей учебного дневника">
                             <!-- Записи будут загружены через JavaScript -->
                         </div>
                     </div>
@@ -58,32 +58,36 @@
                 
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h2 class="card-title h5">Добавить запись</h2>
+                        <h3 class="card-title h5">Добавить запись</h3>
                         <form id="diaryForm" novalidate>
-                            <div class="mb-3">
-                                <label for="entryTitle" class="form-label">Название задачи <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="entryTitle" name="entryTitle" required
-                                       aria-describedby="entryTitle-hint entryTitle-error"
-                                       placeholder="Введите название задачи">
-                                <div id="entryTitle-hint" class="form-text visually-hidden">Введите название учебной задачи</div>
-                                <div id="entryTitle-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="entryDate" class="form-label">Дата</label>
-                                <input type="date" class="form-control" id="entryDate" name="entryDate"
-                                       aria-describedby="entryDate-hint">
-                                <div id="entryDate-hint" class="form-text visually-hidden">Выберите дату выполнения задачи</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="entryStatus" class="form-label">Статус</label>
-                                <select class="form-select" id="entryStatus" name="entryStatus"
-                                        aria-describedby="entryStatus-hint">
-                                    <option value="in-progress">В процессе</option>
-                                    <option value="completed">Завершено</option>
-                                </select>
-                                <div id="entryStatus-hint" class="form-text visually-hidden">Выберите текущий статус задачи</div>
-                            </div>
-                            <button type="submit" class="btn btn-primary button">Добавить запись</button>
+                            <fieldset>
+                                <legend class="visually-hidden">Добавление записи в дневник</legend>
+                                <div class="mb-3">
+                                    <label for="entryTitle" class="form-label">Название задачи <span class="text-danger" aria-label="обязательное поле">*</span></label>
+                                    <input type="text" class="form-control" id="entryTitle" name="entryTitle" required
+                                            aria-required="true"
+                                            aria-describedby="entryTitle-hint entryTitle-error"
+                                            placeholder="Введите название задачи">
+                                    <div id="entryTitle-hint" class="form-text visually-hidden">Введите название учебной задачи</div>
+                                    <div id="entryTitle-error" class="invalid-feedback" role="alert" aria-live="polite"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="entryDate" class="form-label">Дата</label>
+                                    <input type="date" class="form-control" id="entryDate" name="entryDate"
+                                            aria-describedby="entryDate-hint">
+                                    <div id="entryDate-hint" class="form-text visually-hidden">Выберите дату выполнения задачи</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="entryStatus" class="form-label">Статус</label>
+                                    <select class="form-select" id="entryStatus" name="entryStatus"
+                                            aria-describedby="entryStatus-hint">
+                                        <option value="in-progress">В процессе</option>
+                                        <option value="completed">Завершено</option>
+                                    </select>
+                                    <div id="entryStatus-hint" class="form-text visually-hidden">Выберите текущий статус задачи</div>
+                                </div>
+                            </fieldset>
+                            <button type="submit" class="btn btn-primary button" aria-label="Добавить новую запись в учебный дневник">Добавить запись</button>
                         </form>
                     </div>
                 </div>
@@ -91,8 +95,8 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title h4">Текущие курсы</h2>
-                        <div id="coursesProgress" aria-live="polite">
+                        <h3 class="card-title h4">Текущие курсы</h3>
+                        <div id="coursesProgress" aria-live="polite" role="region" aria-label="Прогресс обучения по курсам">
                             <!-- Прогресс курсов будет загружен через JavaScript -->
                         </div>
                     </div>
@@ -100,7 +104,7 @@
 
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h2 class="card-title h5">Статистика обучения</h2>
+                        <h3 class="card-title h5">Статистика обучения</h3>
                         <div class="row text-center">
                             <div class="col-6">
                                 <div class="p-3 bg-light rounded">

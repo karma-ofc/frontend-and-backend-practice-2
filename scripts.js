@@ -102,18 +102,19 @@ function applyContainerQueriesFallback() {
 // Ф-ция для анимации прогресс-баров
 function initProgressBars() {
     const progressBars = document.querySelectorAll('.progress-bar');
-    
+
     // Проверка prefers-reduced-motion
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     // Наблюдатель для анимации при прокрутке
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const progressBar = entry.target;
-                const width = progressBar.style.width;
+                const width = progressBar.getAttribute('aria-valuenow') + '%';
                 progressBar.style.width = '0';
-                
+                progressBar.style.backgroundColor = '#000080';
+
                 setTimeout(() => {
                     if (!reducedMotion) {
                         progressBar.style.transition = 'width 1.5s ease-in-out';
@@ -122,12 +123,12 @@ function initProgressBars() {
                         progressBar.style.width = width;
                     }
                 }, 300);
-                
+
                 observer.unobserve(progressBar);
             }
         });
     }, { threshold: 0.5 });
-    
+
     progressBars.forEach(bar => observer.observe(bar));
 }
 
@@ -461,20 +462,28 @@ function initProjectFilters() {
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Обновление активной кнопки
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
             this.classList.add('active');
-            
+            this.setAttribute('aria-pressed', 'true');
+
             const filter = this.getAttribute('data-filter');
             filterProjects(filter);
         });
-        
+
         // Обработчики клавиатуры
         button.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                filterButtons.forEach(btn => btn.classList.remove('active'));
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
                 this.classList.add('active');
-                
+                this.setAttribute('aria-pressed', 'true');
+
                 const filter = this.getAttribute('data-filter');
                 filterProjects(filter);
             }
@@ -566,13 +575,13 @@ function renderDiaryEntries(container, entries) {
         entryElement.innerHTML = `
             <div class="d-flex justify-content-between align-items-start">
                 <div class="flex-grow-1">
-                    <h3 class="h5 mb-2">${entry.title}</h3>
+                    <h4 class="h5 mb-2">${entry.title}</h4>
                     <p class="mb-1"><small class="text-muted">Дата: ${formattedDate}</small></p>
                     <span class="badge ${entry.status === 'completed' ? 'bg-success' : 'bg-warning'}">
                         ${statusIcon} ${statusText}
                     </span>
                 </div>
-                <button type="button" class="btn btn-outline-danger btn-sm ms-3 delete-entry" 
+                <button type="button" class="btn btn-outline-danger btn-sm ms-3 delete-entry"
                         data-entry-id="${entry.id}"
                         aria-label="Удалить запись ${entry.title}">
                     Удалить
@@ -593,7 +602,7 @@ function addDeleteHandlers() {
     deleteButtons.forEach(button => {
         button.addEventListener('click', function() {
             const entryId = this.getAttribute('data-entry-id');
-            const entryTitle = this.closest('.diary-entry').querySelector('h3').textContent;
+            const entryTitle = this.closest('.diary-entry').querySelector('h4').textContent;
             deleteDiaryEntry(entryId, entryTitle);
         });
         
@@ -602,7 +611,7 @@ function addDeleteHandlers() {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 const entryId = this.getAttribute('data-entry-id');
-                const entryTitle = this.closest('.diary-entry').querySelector('h3').textContent;
+                const entryTitle = this.closest('.diary-entry').querySelector('h4').textContent;
                 deleteDiaryEntry(entryId, entryTitle);
             }
         });
@@ -664,11 +673,10 @@ function updateCourseProgress() {
     coursesContainer.innerHTML = `
         <div class="mb-3">
             <h3 class="h6">Общий прогресс обучения</h3>
-            <div class="progress" role="progressbar" aria-label="Прогресс обучения" aria-valuenow="${progressPercentage}" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style="width: ${progressPercentage}%">
-                    ${progressPercentage}%
-                </div>
+            <div class="progress" role="progressbar" aria-labelledby="progress-label" aria-valuenow="${progressPercentage}" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: ${progressPercentage}%" id="progress-bar"></div>
             </div>
+            <div id="progress-label" class="visually-hidden">Прогресс обучения: ${progressPercentage}%</div>
         </div>
         <div>
             <p><strong>Завершено задач:</strong> ${completedEntries} из ${totalEntries}</p>
